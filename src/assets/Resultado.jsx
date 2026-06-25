@@ -1,5 +1,34 @@
 function Resultado({ producto }) {
-  if (!producto) return null;
+  if (!producto) {
+  return <p>No se ha ingresado ningún producto.</p>;
+}
+
+const errores = [];
+
+if (!producto.nombre) {
+  errores.push("Falta el nombre del producto.");
+}
+
+if (!producto.valor) {
+  errores.push("Falta el valor del producto.");
+}
+
+if (!producto.cantidad) {
+  errores.push("Falta la cantidad del producto.");
+}
+
+if (errores.length > 0) {
+  return (
+    <div>
+      {/*<h2>Errores</h2>*/}
+      {errores.map((error, index) => (
+        <p key={index} style={{ color: "yellow" }}>
+          {error}
+        </p>
+      ))}
+    </div>
+  );
+}
 
   const subtotal = producto.valor * producto.cantidad;
   const tieneDescuento = producto.cantidad >= 3;
