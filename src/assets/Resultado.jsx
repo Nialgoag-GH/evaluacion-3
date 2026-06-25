@@ -1,6 +1,6 @@
 function Resultado({ producto }) {
   if (!producto) {
-  return <p>No se ha ingresado ningún producto.</p>;
+  return <p>Porfavor ingrese los datos correspondientes</p>;
 }
 
 const errores = [];
